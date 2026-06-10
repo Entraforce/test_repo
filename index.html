@@ -272,13 +272,36 @@ footer{background:var(--espresso);color:var(--sand);padding:60px 0 26px}
 .socials a:hover{background:var(--terra);border-color:var(--terra);color:#fff}
 .foot-bot{border-top:1px solid rgba(228,207,169,.16);padding-top:22px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:.8rem;color:rgba(228,207,169,.6)}
 
+/* ───── RESERVE (family section) ───── */
+.reserve{background:radial-gradient(130% 120% at 0% 0%,rgba(226,116,47,.16),transparent 60%),var(--cream-2)}
+.res-grid{display:grid;grid-template-columns:1fr 1.04fr;gap:48px;align-items:center}
+.res-intro h2{font-size:clamp(2rem,4.8vw,2.9rem);font-weight:600;color:var(--espresso);margin:14px 0 16px;line-height:1.07}
+.res-intro p{color:var(--ink);opacity:.86;font-size:1.05rem;margin-bottom:22px}
+.res-perks{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.res-perks span{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid rgba(124,100,80,.18);border-radius:30px;padding:9px 16px;font-size:.84rem;color:var(--wood)}
+.res-img{border-radius:16px;overflow:hidden;box-shadow:0 24px 50px -30px rgba(0,0,0,.45);max-width:340px}
+.res-img img{width:100%;height:100%;object-fit:cover}
+.res-card{background:#fff;border-radius:18px;padding:34px;box-shadow:0 30px 60px -34px rgba(0,0,0,.4);border:1px solid rgba(124,100,80,.14)}
+.res-card h3{font-size:1.4rem;font-weight:600;color:var(--espresso);margin-bottom:4px}
+.res-card .sub{color:var(--muted);font-size:.92rem;margin-bottom:22px}
+.field{margin-bottom:14px}
+.field label{display:block;font-family:"Marcellus",serif;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--wood);margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;font-family:"Inter",sans-serif;font-size:.96rem;color:var(--ink);padding:12px 14px;border:1.5px solid rgba(124,100,80,.28);border-radius:10px;background:var(--cream);transition:.2s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--terra);background:#fff;box-shadow:0 0 0 3px rgba(201,83,30,.12)}
+.field textarea{resize:vertical;min-height:64px}
+.res-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.res-submit{width:100%;justify-content:center;margin-top:8px;font-size:.82rem}
+.res-foot{text-align:center;margin-top:14px;font-size:.82rem;color:var(--muted)}
+.res-foot a{color:var(--terra-d);font-weight:600;text-decoration:none}
+
 /* ───── RESPONSIVE ───── */
 @media(max-width:880px){
   .nav-links,.nav-call{display:none}
   .burger{display:flex}
   nav.open .nav-links{display:flex;position:absolute;top:100%;left:0;width:100%;flex-direction:column;gap:0;background:rgba(28,17,9,.98);padding:10px 0}
   nav.open .nav-links a{padding:15px 28px;width:100%;border-bottom:1px solid rgba(255,255,255,.06)}
-  .sig-grid,.story-grid,.visit-grid{grid-template-columns:1fr;gap:40px}
+  .sig-grid,.story-grid,.visit-grid,.res-grid{grid-template-columns:1fr;gap:40px}
+  .res-img{max-width:none}
   .sig-imgs .img-float{position:static;width:48%;margin-top:12px;display:inline-block}
   .mgrid{grid-template-columns:1fr;gap:0}
   .show-grid{grid-template-columns:repeat(2,1fr)}
@@ -307,6 +330,7 @@ footer{background:var(--espresso);color:var(--sand);padding:60px 0 26px}
     <li><a href="#bakery">Bakery</a></li>
     <li><a href="#story">Our Story</a></li>
     <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#reserve">Reserve</a></li>
     <li><a href="#visit">Visit</a></li>
   </ul>
   <div class="nav-right">
@@ -522,6 +546,83 @@ footer{background:var(--espresso);color:var(--sand);padding:60px 0 26px}
   </div>
 </section>
 
+<!-- ═══ RESERVE (family section) ═══ -->
+<section class="reserve sec-pad" id="reserve">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sunburst"></div>
+      <div class="eyebrow">Family Section</div>
+      <h2>Reserve a Family Table</h2>
+      <p>Planning a get-together? Reserve a spot in our comfortable upstairs family section — and we'll have it ready for you.</p>
+    </div>
+    <div class="res-grid">
+      <div class="res-intro">
+        <div class="eyebrow">Made for Gatherings</div>
+        <h2>Bring the whole family</h2>
+        <p>Our upstairs family section is air-conditioned, roomy, and perfect for birthdays, reunions, or a relaxed evening of chai and bakery with the people you love.</p>
+        <div class="res-perks">
+          <span>❄️ Air-conditioned</span>
+          <span>👨‍👩‍👧‍👦 Family seating</span>
+          <span>🎂 Birthdays &amp; events</span>
+          <span>☕ Chai · Coffee · Bakery</span>
+        </div>
+        <div class="res-img">
+          <img src="assets/photos/qahwa-10.jpg" width="1024" height="768" loading="lazy" alt="Qahwa House upstairs family section with wood panelling and comfortable seating">
+        </div>
+      </div>
+
+      <div class="res-card">
+        <h3>Request a Table</h3>
+        <div class="sub">Fill this in and we'll confirm your booking on WhatsApp.</div>
+        <form id="resForm">
+          <div class="field">
+            <label for="rName">Your Name</label>
+            <input id="rName" name="name" type="text" placeholder="e.g. Ahmed Khan" required>
+          </div>
+          <div class="field">
+            <label for="rPhone">Mobile Number</label>
+            <input id="rPhone" name="phone" type="tel" placeholder="e.g. 98765 43210" required>
+          </div>
+          <div class="res-row">
+            <div class="field">
+              <label for="rDate">Date</label>
+              <input id="rDate" name="date" type="date" required>
+            </div>
+            <div class="field">
+              <label for="rTime">Time</label>
+              <input id="rTime" name="time" type="time" required>
+            </div>
+          </div>
+          <div class="res-row">
+            <div class="field">
+              <label for="rGuests">Guests</label>
+              <select id="rGuests" name="guests" required>
+                <option value="" disabled selected>Select</option>
+                <option>1–2</option><option>3–4</option><option>5–6</option>
+                <option>7–10</option><option>10–15</option><option>15+</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="rOccasion">Occasion</label>
+              <select id="rOccasion" name="occasion">
+                <option value="" disabled selected>Optional</option>
+                <option>Family meal</option><option>Birthday</option>
+                <option>Get-together</option><option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="rNotes">Anything else? (optional)</label>
+            <textarea id="rNotes" name="notes" placeholder="Special requests, cake, decorations…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-solid res-submit">Send Request on WhatsApp</button>
+        </form>
+        <p class="res-foot">Prefer to talk? <a href="tel:+918790620996">Call +91 87906 20996</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ VISIT ═══ -->
 <section class="visit sec-pad" id="visit">
   <div class="wrap">
@@ -585,6 +686,7 @@ footer{background:var(--espresso);color:var(--sand);padding:60px 0 26px}
         <a href="#bakery">Bakery</a>
         <a href="#story">Our Story</a>
         <a href="#gallery">Gallery</a>
+        <a href="#reserve">Reserve a Table</a>
       </div>
       <div class="foot-col">
         <h4>Visit</h4>
@@ -620,6 +722,24 @@ tabs.addEventListener('click',function(e){
   b.classList.add('on');
   document.getElementById('p-'+b.dataset.p).classList.add('on');
 });
+// family reservation -> WhatsApp
+var resForm=document.getElementById('resForm');
+if(resForm){
+  resForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=function(id){return (document.getElementById(id).value||'').trim();};
+    var msg=
+      "*Family Section Reservation — Qahwa House*\n"+
+      "Name: "+v('rName')+"\n"+
+      "Mobile: "+v('rPhone')+"\n"+
+      "Date: "+v('rDate')+"\n"+
+      "Time: "+v('rTime')+"\n"+
+      "Guests: "+v('rGuests')+
+      (v('rOccasion')? "\nOccasion: "+v('rOccasion'):"")+
+      (v('rNotes')? "\nNotes: "+v('rNotes'):"");
+    window.open('https://wa.me/918790620996?text='+encodeURIComponent(msg),'_blank');
+  });
+}
 </script>
 </body>
 </html>
