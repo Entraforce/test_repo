@@ -141,11 +141,15 @@ nav.solid{background:rgba(28,17,9,.94);backdrop-filter:blur(10px);box-shadow:0 8
 
 /* ───── HERO ───── */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;color:var(--cream);overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url('assets/photos/qahwa-14.jpg') center/cover no-repeat;transform:scale(1.06);animation:slowzoom 18s ease-out forwards}
-@keyframes slowzoom{to{transform:scale(1)}}
-.hero-bg::after{content:"";position:absolute;inset:0;background:
-  linear-gradient(180deg,rgba(20,11,5,.62) 0%,rgba(20,11,5,.40) 38%,rgba(20,11,5,.82) 100%),
+.hero-slides{position:absolute;inset:0;overflow:hidden}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.08);transition:opacity 1.6s ease-in-out}
+.hero-slide.active{opacity:1;transform:scale(1);transition:opacity 1.6s ease-in-out,transform 6.5s ease-out}
+.hero-slides::after{content:"";position:absolute;inset:0;z-index:2;background:
+  linear-gradient(180deg,rgba(20,11,5,.64) 0%,rgba(20,11,5,.42) 38%,rgba(20,11,5,.84) 100%),
   radial-gradient(120% 90% at 70% 10%,transparent,rgba(20,11,5,.55))}
+.hero-dots{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:9px}
+.hero-dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;cursor:pointer;background:rgba(246,236,219,.4);transition:.3s}
+.hero-dots button.on{background:var(--gold-l);width:22px;border-radius:6px}
 .hero-inner{position:relative;z-index:2;padding:120px 0 70px}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:14px;font-family:"Marcellus",serif;letter-spacing:.34em;text-transform:uppercase;font-size:.72rem;color:var(--gold-l);margin-bottom:26px}
 .hero-eyebrow::before,.hero-eyebrow::after{content:"";width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
@@ -156,8 +160,6 @@ nav.solid{background:rgba(28,17,9,.94);backdrop-filter:blur(10px);box-shadow:0 8
 .hero-pos span{display:inline-flex;align-items:center;gap:9px;opacity:.92}
 .dot{width:8px;height:8px;border-radius:50%;flex:none}
 .hero-cta{display:flex;flex-wrap:wrap;gap:14px}
-.hero-scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;font-family:"Marcellus",serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(246,236,219,.6);text-align:center}
-.hero-scroll::after{content:"";display:block;width:1px;height:30px;background:linear-gradient(var(--gold),transparent);margin:8px auto 0}
 
 /* ───── MARQUEE STRIP ───── */
 .strip{background:var(--espresso);color:var(--sand);padding:16px 0;overflow:hidden;white-space:nowrap;border-top:3px solid var(--terra-d);border-bottom:3px solid var(--terra-d)}
@@ -341,7 +343,13 @@ footer{background:var(--espresso);color:var(--sand);padding:60px 0 26px}
 
 <!-- ═══ HERO ═══ -->
 <header class="hero" id="top">
-  <div class="hero-bg"></div>
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide active" style="background-image:url('assets/photos/qahwa-14.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/photos/qahwa-09.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/photos/qahwa-06.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/photos/qahwa-28.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('assets/photos/qahwa-31.jpg')"></div>
+  </div>
   <div class="wrap hero-inner">
     <div class="hero-eyebrow">Mehdipatnam · Hyderabad</div>
     <h1><span class="ar">قهوة · QAHWA</span>Qahwa House</h1>
@@ -357,7 +365,13 @@ footer{background:var(--espresso);color:var(--sand);padding:60px 0 26px}
       <a href="#visit" class="btn btn-ghost">Get Directions ➜</a>
     </div>
   </div>
-  <div class="hero-scroll">Scroll</div>
+  <div class="hero-dots" id="heroDots" aria-label="Slideshow controls">
+    <button class="on" aria-label="Slide 1"></button>
+    <button aria-label="Slide 2"></button>
+    <button aria-label="Slide 3"></button>
+    <button aria-label="Slide 4"></button>
+    <button aria-label="Slide 5"></button>
+  </div>
 </header>
 
 <!-- ═══ MARQUEE ═══ -->
@@ -722,6 +736,22 @@ tabs.addEventListener('click',function(e){
   b.classList.add('on');
   document.getElementById('p-'+b.dataset.p).classList.add('on');
 });
+// hero slideshow
+(function(){
+  var slides=document.querySelectorAll('.hero-slide');
+  var dots=document.querySelectorAll('#heroDots button');
+  if(slides.length<2) return;
+  var i=0, timer;
+  function show(n){
+    slides[i].classList.remove('active'); if(dots[i])dots[i].classList.remove('on');
+    i=(n+slides.length)%slides.length;
+    slides[i].classList.add('active'); if(dots[i])dots[i].classList.add('on');
+  }
+  function play(){timer=setInterval(function(){show(i+1)},5000);}
+  function reset(){clearInterval(timer);play();}
+  dots.forEach(function(d,n){d.addEventListener('click',function(){show(n);reset();});});
+  play();
+})();
 // family reservation -> WhatsApp
 var resForm=document.getElementById('resForm');
 if(resForm){
