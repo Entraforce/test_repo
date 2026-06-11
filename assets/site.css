@@ -60,11 +60,14 @@ nav.solid{background:rgba(14,11,9,.95);backdrop-filter:blur(12px);box-shadow:0 1
 .hero-pos{display:flex;flex-wrap:wrap;gap:10px 26px;margin:20px 0 40px;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;font-family:"Marcellus",serif;color:var(--cream);animation:heroL 9s ease-in-out 2s infinite both}
 .hero-pos span{display:inline-flex;align-items:center;gap:9px;opacity:.9}
 .dot{width:6px;height:6px;border-radius:50%;flex:none;background:var(--gold)}
-.hero-cta{display:flex;flex-wrap:wrap;gap:16px;animation:heroBtn 1s ease-out 2.4s both}
+.hero-cta{display:flex;flex-wrap:wrap;gap:16px}
+.hero-cta .btn{animation:heroDrop .95s cubic-bezier(.34,1.56,.64,1) both}
+.hero-cta .btn:nth-child(1){animation-delay:2.3s}
+.hero-cta .btn:nth-child(2){animation-delay:2.55s}
 @keyframes heroL{0%{opacity:0;transform:translateX(-70px)}11%{opacity:1;transform:translateX(0)}82%{opacity:1;transform:translateX(0)}95%,100%{opacity:0;transform:translateX(-70px)}}
 @keyframes heroR{0%{opacity:0;transform:translateX(70px)}11%{opacity:1;transform:translateX(0)}82%{opacity:1;transform:translateX(0)}95%,100%{opacity:0;transform:translateX(70px)}}
-@keyframes heroBtn{0%{opacity:0;transform:translateX(70px)}100%{opacity:1;transform:translateX(0)}}
-@media(prefers-reduced-motion:reduce){.hero-eyebrow,.hero .ar,.hero h1,.hero-tag,.hero-pos,.hero-cta{animation:none;opacity:1;transform:none}}
+@keyframes heroDrop{0%{opacity:0;transform:translateY(-140px)}60%{opacity:1}100%{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.hero-eyebrow,.hero .ar,.hero h1,.hero-tag,.hero-pos,.hero-cta,.hero-cta .btn{animation:none;opacity:1;transform:none}}
 
 /* ───── PAGE HERO (sub-pages) ───── */
 .page-hero{position:relative;min-height:52vh;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--cream);overflow:hidden;padding:140px 26px 80px}
