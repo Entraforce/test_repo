@@ -66,7 +66,7 @@
   "openingHoursSpecification": [
     {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"05:00","closes":"01:00"}
   ],
-  "hasMenu": "https://coffeemocktailscorner.com/#menu",
+  "hasMenu": "https://coffeemocktailscorner.com/menu.html",
   "sameAs": []
 }
 </script>
@@ -87,250 +87,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Marcellus&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --bg:#0E0B09; --bg-2:#15100C; --panel:#1C1511; --panel-2:#241A13;
-  --cocoa:#3A2A1E; --cocoa-l:#5A4334;
-  --gold:#C9A24B; --gold-l:#E6C982; --gold-d:#A07E2E;
-  --cream:#F3E9D7; --cream-d:#D8C9AE; --muted:#A08C73;
-  --accent:#B5762E;
-  --line:rgba(230,201,130,.16);
-  --maxw:1200px;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--cream-d);font-family:"Jost",system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.7;font-weight:300}
-img{max-width:100%;display:block}
-a{color:inherit}
-h1,h2,h3,.disp{font-family:"Cormorant Garamond",Georgia,serif}
-section{position:relative;scroll-margin-top:74px}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
-.eyebrow{font-family:"Marcellus",serif;letter-spacing:.42em;text-transform:uppercase;font-size:.7rem;color:var(--gold)}
-.divider{width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto;position:relative}
-.divider::after{content:"✦";position:absolute;top:-11px;left:50%;transform:translateX(-50%);color:var(--gold);font-size:.8rem;background:transparent}
-
-.btn{display:inline-flex;align-items:center;gap:10px;font-family:"Marcellus",serif;letter-spacing:.22em;text-transform:uppercase;font-size:.72rem;padding:16px 34px;text-decoration:none;transition:.3s;cursor:pointer;border:1px solid transparent;white-space:nowrap}
-.btn-gold{background:var(--gold);color:#1A120A;border-color:var(--gold)}
-.btn-gold:hover{background:transparent;color:var(--gold-l);border-color:var(--gold)}
-.btn-line{border-color:rgba(230,201,130,.5);color:var(--cream)}
-.btn-line:hover{background:var(--gold);color:#1A120A;border-color:var(--gold)}
-
-/* ───── NAV ───── */
-nav{position:fixed;top:0;left:0;width:100%;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:22px 34px;transition:.4s}
-nav.solid{background:rgba(14,11,9,.95);backdrop-filter:blur(12px);box-shadow:0 10px 34px -18px #000;padding:13px 34px;border-bottom:1px solid var(--line)}
-.logo{display:flex;align-items:center;gap:13px;text-decoration:none}
-.logo-badge{width:48px;height:48px;border-radius:50%;overflow:hidden;background:#0a0a0a;border:1px solid rgba(230,201,130,.45);flex:none;display:block}
-.logo-badge img{width:100%;height:100%;object-fit:cover;display:block}
-.logo-txt b{font-family:"Cormorant Garamond",serif;font-weight:600;color:var(--cream);font-size:1.5rem;letter-spacing:.04em;display:block;line-height:1}
-.logo-txt span{font-family:"Marcellus",serif;font-size:.52rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);display:block;margin-top:4px}
-.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
-.nav-links a{font-family:"Marcellus",serif;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cream);text-decoration:none;opacity:.82;transition:.25s;position:relative;padding:4px 0}
-.nav-links a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:1px;background:var(--gold);transition:.3s}
-.nav-links a:hover{opacity:1;color:var(--gold-l)}
-.nav-links a:hover::after{width:100%}
-.nav-right{display:flex;align-items:center;gap:18px}
-.nav-call{display:flex;align-items:center;gap:8px;font-family:"Marcellus",serif;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:#1A120A;background:var(--gold);padding:12px 22px;text-decoration:none;transition:.3s;border:1px solid var(--gold)}
-.nav-call:hover{background:transparent;color:var(--gold-l)}
-.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
-.burger span{width:26px;height:2px;background:var(--cream);transition:.3s}
-
-/* ───── HERO ───── */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;text-align:left;color:var(--cream);overflow:hidden}
-.hero-bg{position:absolute;inset:0;z-index:1;background:url('assets/photos/qahwa-41.jpg') center/cover no-repeat;transform:scale(1.04)}
-.hero-bg::after{content:"";position:absolute;inset:0;background:
-  linear-gradient(105deg,rgba(8,5,3,.93) 0%,rgba(8,5,3,.78) 36%,rgba(8,5,3,.34) 68%,rgba(8,5,3,.5) 100%),
-  linear-gradient(0deg,rgba(8,5,3,.86),transparent 55%)}
-.hero .wrap{position:relative;z-index:3;width:100%}
-.hero-inner{max-width:720px;padding:130px 0 96px;text-align:left}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:16px;font-family:"Marcellus",serif;letter-spacing:.42em;text-transform:uppercase;font-size:.72rem;color:var(--gold-l);margin-bottom:30px;animation:heroL 9s ease-in-out 0s infinite both}
-.hero-eyebrow::after{content:"";width:40px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
-.hero .ar{display:block;font-family:"Marcellus",serif;font-size:clamp(1rem,2.4vw,1.4rem);font-weight:400;letter-spacing:.5em;color:var(--gold-l);margin-bottom:18px;animation:heroR 9s ease-in-out .5s infinite both}
-.hero h1{font-size:clamp(3.4rem,10vw,7rem);font-weight:500;line-height:.96;letter-spacing:.01em;text-shadow:0 4px 40px rgba(0,0,0,.6);color:#fff;animation:heroL 9s ease-in-out 1s infinite both}
-.hero-tag{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.25rem,3vw,1.85rem);font-weight:400;color:rgba(243,233,215,.92);max-width:560px;margin:26px 0 18px;animation:heroR 9s ease-in-out 1.5s infinite both}
-.hero-pos{display:flex;flex-wrap:wrap;gap:10px 26px;margin:20px 0 40px;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;font-family:"Marcellus",serif;color:var(--cream);animation:heroL 9s ease-in-out 2s infinite both}
-.hero-pos span{display:inline-flex;align-items:center;gap:9px;opacity:.9}
-.dot{width:6px;height:6px;border-radius:50%;flex:none;background:var(--gold)}
-.hero-cta{display:flex;flex-wrap:wrap;gap:16px;animation:heroBtn 1s ease-out 2.4s both}
-@keyframes heroL{0%{opacity:0;transform:translateX(-70px)}11%{opacity:1;transform:translateX(0)}82%{opacity:1;transform:translateX(0)}95%,100%{opacity:0;transform:translateX(-70px)}}
-@keyframes heroR{0%{opacity:0;transform:translateX(70px)}11%{opacity:1;transform:translateX(0)}82%{opacity:1;transform:translateX(0)}95%,100%{opacity:0;transform:translateX(70px)}}
-@keyframes heroBtn{0%{opacity:0;transform:translateX(70px)}100%{opacity:1;transform:translateX(0)}}
-@media(prefers-reduced-motion:reduce){.hero-eyebrow,.hero .ar,.hero h1,.hero-tag,.hero-pos,.hero-cta{animation:none;opacity:1;transform:none}}
-
-/* ───── PARALLAX BANDS ───── */
-.parallax{position:relative;background-size:cover;background-position:center;background-attachment:fixed;color:var(--cream);text-align:center}
-.parallax::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,7,4,.72),rgba(10,7,4,.82))}
-.parallax-inner{position:relative;z-index:2;padding:130px 26px;max-width:820px;margin:0 auto}
-.parallax .eyebrow{color:var(--gold-l)}
-.parallax h2{font-size:clamp(2.2rem,5.4vw,3.6rem);font-weight:500;color:#fff;line-height:1.08;margin:14px 0}
-.parallax p{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.2rem,2.6vw,1.6rem);color:rgba(243,233,215,.9);max-width:600px;margin:0 auto}
-.parallax .btn{margin-top:34px}
-
-/* ───── SECTION SHELL ───── */
-.sec-pad{padding:100px 0}
-.sec-head{text-align:center;max-width:680px;margin:0 auto 60px}
-.sec-head h2{font-size:clamp(2.2rem,5.4vw,3.5rem);font-weight:500;color:var(--cream);line-height:1.05;margin:10px 0 14px}
-.sec-head p{color:var(--muted);font-size:1.05rem}
-
-/* ───── SIGNATURE (honey comb) ───── */
-.signature{background:var(--bg-2)}
-.sig-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center}
-.sig-imgs{position:relative}
-.sig-imgs img{box-shadow:0 36px 70px -30px rgba(0,0,0,.8)}
-.sig-imgs .img-main{width:100%;aspect-ratio:4/3;object-fit:cover}
-.sig-imgs .img-float{position:absolute;width:42%;aspect-ratio:1;object-fit:cover;bottom:-28px;right:-20px;border:6px solid var(--bg-2)}
-.sig-imgs .price-badge{position:absolute;top:-26px;left:-26px;width:104px;height:104px;border-radius:50%;background:var(--gold);color:#1A120A;display:grid;place-items:center;text-align:center;font-family:"Marcellus",serif;box-shadow:0 18px 36px -14px rgba(0,0,0,.7);z-index:3}
-.price-badge b{display:block;font-family:"Cormorant Garamond",serif;font-weight:700;font-size:1.7rem;line-height:1}
-.price-badge small{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;margin-top:3px;display:block}
-.sig-text h2{font-size:clamp(2.2rem,4.8vw,3.2rem);font-weight:500;margin:12px 0 6px;line-height:1.04;color:var(--cream)}
-.sig-text .ar2{font-family:"Marcellus",serif;letter-spacing:.22em;color:var(--gold-l);font-size:.92rem;margin-bottom:22px}
-.sig-text p{color:var(--muted);margin-bottom:18px;font-size:1.06rem}
-.sig-price{display:inline-flex;align-items:baseline;gap:9px;font-family:"Cormorant Garamond",serif;color:var(--gold-l);font-size:1.7rem;margin-top:8px}
-.sig-price small{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-family:"Marcellus",serif}
-
-/* ───── MENU ───── */
-.menu-sec{background:var(--bg)}
-.tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:46px}
-.tab{font-family:"Marcellus",serif;letter-spacing:.14em;text-transform:uppercase;font-size:.74rem;padding:12px 22px;border:1px solid var(--line);background:transparent;color:var(--cream-d);cursor:pointer;transition:.25s}
-.tab:hover{border-color:var(--gold);color:var(--gold-l)}
-.tab.on{background:var(--gold);color:#1A120A;border-color:var(--gold)}
-.pane{display:none;animation:fade .45s}
-.pane.on{display:block}
-@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px 56px;max-width:960px;margin:0 auto}
-.mitem{display:flex;gap:14px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)}
-.mitem .nm{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:1.3rem;color:var(--cream)}
-.mitem .ds{font-size:.84rem;color:var(--muted);margin-top:2px;font-weight:300}
-.mitem .lead{flex:1;border-bottom:1px dotted rgba(230,201,130,.3);margin:0 6px;transform:translateY(-5px)}
-.mitem .pr{font-family:"Marcellus",serif;color:var(--gold-l);font-size:1.02rem;white-space:nowrap}
-.mitem .tag{display:inline-block;font-family:"Marcellus",serif;font-size:.54rem;letter-spacing:.14em;text-transform:uppercase;color:#1A120A;background:var(--gold);padding:3px 9px;margin-left:9px;vertical-align:middle}
-.menu-note{text-align:center;color:var(--muted);font-size:.88rem;margin-top:40px;font-style:italic;font-family:"Cormorant Garamond",serif}
-
-/* ───── BAKERY SHOWCASE ───── */
-.showcase{background:var(--bg-2)}
-.show-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.show-grid figure{position:relative;overflow:hidden;margin:0}
-.show-grid img{width:100%;height:100%;object-fit:cover;transition:.6s}
-.show-grid figure:hover img{transform:scale(1.08)}
-.show-grid figcaption{position:absolute;left:0;bottom:0;right:0;padding:22px 16px 14px;font-family:"Marcellus",serif;letter-spacing:.08em;font-size:.8rem;color:#fff;background:linear-gradient(transparent,rgba(8,5,3,.9))}
-.tall{grid-row:span 2}
-.wide{grid-column:span 2}
-
-/* ───── STORY ───── */
-.story{background:var(--panel)}
-.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.story-text h2{font-size:clamp(2.2rem,4.8vw,3.2rem);font-weight:500;color:var(--cream);margin:12px 0 18px;line-height:1.05}
-.story-text p{color:var(--cream-d);margin-bottom:16px;font-size:1.06rem;opacity:.82}
-.feats{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:34px}
-.feat{display:flex;gap:14px;align-items:flex-start}
-.feat .fi{width:46px;height:46px;border:1px solid var(--gold);color:var(--gold-l);display:grid;place-items:center;font-size:1.2rem;flex:none}
-.feat b{font-family:"Marcellus",serif;font-weight:400;display:block;color:var(--cream);font-size:.92rem;letter-spacing:.06em}
-.feat span{font-size:.82rem;color:var(--muted)}
-.story-imgs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.story-imgs img{width:100%;height:100%;object-fit:cover;box-shadow:0 24px 50px -28px rgba(0,0,0,.7)}
-.story-imgs img:first-child{grid-row:span 2}
-
-/* ───── GALLERY ───── */
-.gallery{background:var(--bg)}
-.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:155px;gap:10px}
-.gal-grid a{display:block;overflow:hidden;position:relative}
-.gal-grid img{width:100%;height:100%;object-fit:cover;transition:.6s;filter:saturate(.92)}
-.gal-grid a:hover img{transform:scale(1.09);filter:saturate(1.05)}
-.g-tall{grid-row:span 2}
-.g-wide{grid-column:span 2}
-
-/* ───── RESERVE ───── */
-.reserve{background:var(--panel)}
-.res-grid{display:grid;grid-template-columns:1fr 1.04fr;gap:54px;align-items:center}
-.res-intro h2{font-size:clamp(2.2rem,4.8vw,3.2rem);font-weight:500;color:var(--cream);margin:12px 0 16px;line-height:1.05}
-.res-intro p{color:var(--cream-d);opacity:.82;font-size:1.06rem;margin-bottom:24px}
-.res-perks{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
-.res-perks span{display:inline-flex;align-items:center;gap:8px;background:var(--bg-2);border:1px solid var(--line);padding:10px 18px;font-size:.82rem;color:var(--cream-d)}
-.res-img{overflow:hidden;box-shadow:0 24px 50px -28px rgba(0,0,0,.7);max-width:360px}
-.res-img img{width:100%;height:100%;object-fit:cover}
-.res-card{background:var(--bg-2);padding:40px;box-shadow:0 36px 70px -36px rgba(0,0,0,.8);border:1px solid var(--line)}
-.res-card h3{font-family:"Cormorant Garamond",serif;font-size:1.9rem;font-weight:600;color:var(--cream);margin-bottom:4px}
-.res-card .sub{color:var(--muted);font-size:.92rem;margin-bottom:24px}
-.field{margin-bottom:15px}
-.field label{display:block;font-family:"Marcellus",serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
-.field input,.field select,.field textarea{width:100%;font-family:"Jost",sans-serif;font-size:.96rem;color:var(--cream);padding:13px 15px;border:1px solid var(--line);background:var(--panel);transition:.2s}
-.field input::placeholder,.field textarea::placeholder{color:#6f5d4c}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);background:var(--panel-2)}
-.field select{color:var(--cream)}
-.field select option{background:var(--panel);color:var(--cream)}
-.field textarea{resize:vertical;min-height:66px}
-.res-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.res-submit{width:100%;justify-content:center;margin-top:10px}
-.res-foot{text-align:center;margin-top:16px;font-size:.84rem;color:var(--muted)}
-.res-foot a{color:var(--gold-l);text-decoration:none}
-
-/* ───── VISIT ───── */
-.visit{background:var(--bg-2)}
-.visit-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px}
-.visit-card{background:var(--panel);padding:42px;box-shadow:0 30px 60px -34px rgba(0,0,0,.7);border:1px solid var(--line)}
-.vrow{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}
-.vrow:last-of-type{border-bottom:none}
-.vrow .vi{width:46px;height:46px;border:1px solid var(--gold);color:var(--gold-l);display:grid;place-items:center;font-size:1.2rem;flex:none}
-.vrow b{font-family:"Marcellus",serif;font-weight:400;color:var(--gold);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;display:block;margin-bottom:5px}
-.vrow p{color:var(--cream);font-size:1.02rem;margin:0;font-weight:300}
-.vrow a{color:var(--gold-l);text-decoration:none}
-.vrow a:hover{text-decoration:underline}
-.map-wrap{overflow:hidden;min-height:440px;box-shadow:0 30px 60px -34px rgba(0,0,0,.7);background:#15100c url('assets/photos/qahwa-17.jpg') center/cover;position:relative}
-.map-wrap iframe{width:100%;height:100%;min-height:440px;border:0;display:block;filter:grayscale(.3) contrast(1.05)}
-
-/* ───── FOOTER ───── */
-footer{background:#0A0705;color:var(--muted);padding:70px 0 28px;border-top:1px solid var(--line)}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:46px;margin-bottom:46px}
-.foot-brand .logo-badge{width:52px;height:52px}
-.foot-brand p{margin-top:20px;font-size:.95rem;color:var(--muted);max-width:340px}
-.foot-col h4{font-family:"Marcellus",serif;font-weight:400;color:var(--gold);letter-spacing:.18em;text-transform:uppercase;font-size:.74rem;margin-bottom:18px}
-.foot-col a,.foot-col p{display:block;color:var(--cream-d);text-decoration:none;font-size:.92rem;margin-bottom:11px;opacity:.78;transition:.2s}
-.foot-col a:hover{color:var(--gold-l);opacity:1}
-.socials{display:flex;gap:12px;margin-top:8px}
-.socials a{width:40px;height:40px;border:1px solid var(--line);display:grid;place-items:center;font-size:.9rem;color:var(--cream-d);transition:.25s}
-.socials a:hover{background:var(--gold);border-color:var(--gold);color:#1A120A}
-.foot-bot{border-top:1px solid var(--line);padding-top:24px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:.8rem;color:var(--muted);letter-spacing:.04em}
-
-/* ───── RESPONSIVE ───── */
-@media(max-width:900px){
-  .nav-links,.nav-call{display:none}
-  .burger{display:flex}
-  nav.open .nav-links{display:flex;position:absolute;top:100%;left:0;width:100%;flex-direction:column;gap:0;background:rgba(14,11,9,.99);padding:8px 0;border-top:1px solid var(--line)}
-  nav.open .nav-links a{padding:16px 34px;width:100%;border-bottom:1px solid rgba(255,255,255,.05)}
-  .parallax{background-attachment:scroll}
-  .sig-grid,.story-grid,.visit-grid,.res-grid{grid-template-columns:1fr;gap:44px}
-  .res-img{max-width:none}
-  .sig-imgs .img-float{position:static;width:48%;margin-top:14px;display:inline-block}
-  .sig-imgs .price-badge{top:-18px;left:-12px}
-  .mgrid{grid-template-columns:1fr;gap:0}
-  .show-grid{grid-template-columns:repeat(2,1fr)}
-  .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:145px}
-  .foot-grid{grid-template-columns:1fr;gap:34px}
-  .feats{grid-template-columns:1fr}
-}
-@media(max-width:480px){
-  .wrap{padding:0 18px}
-  .sec-pad{padding:70px 0}
-  .parallax-inner{padding:90px 22px}
-  .story-imgs{grid-template-columns:1fr 1fr}
-}
-</style>
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
 <!-- ═══ NAV ═══ -->
 <nav id="nav">
-  <a href="#top" class="logo">
+  <a href="index.html" class="logo">
     <span class="logo-badge"><img src="assets/logo-mark.png" width="48" height="48" alt="Qahwa House logo"></span>
     <span class="logo-txt"><b>Qahwa House</b><span>Bakery · Irani Chai · Coffee</span></span>
   </a>
   <ul class="nav-links">
-    <li><a href="#signature">Honey Comb</a></li>
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#bakery">Bakery</a></li>
-    <li><a href="#story">Our Story</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#reserve">Reserve</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="bakery.html">Bakery</a></li>
+    <li><a href="story.html">Our Story</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="reserve.html">Reserve</a></li>
     <li><a href="#visit">Visit</a></li>
   </ul>
   <div class="nav-right">
@@ -341,7 +113,7 @@ footer{background:#0A0705;color:var(--muted);padding:70px 0 28px;border-top:1px 
 
 <!-- ═══ HERO ═══ -->
 <header class="hero" id="top">
-  <div class="hero-bg"></div>
+  <div class="hero-bg" style="background-image:url('assets/photos/qahwa-41.jpg')"></div>
   <div class="wrap">
     <div class="hero-inner">
       <div class="hero-eyebrow">Mehdipatnam · Hyderabad</div>
@@ -355,7 +127,7 @@ footer{background:#0A0705;color:var(--muted);padding:70px 0 28px;border-top:1px 
         <span><i class="dot"></i> Yemeni Honey Comb</span>
       </div>
       <div class="hero-cta">
-        <a href="#menu" class="btn btn-gold">View the Menu</a>
+        <a href="menu.html" class="btn btn-gold">View the Menu</a>
         <a href="#visit" class="btn btn-line">Get Directions ➜</a>
       </div>
     </div>
@@ -390,263 +162,22 @@ footer{background:#0A0705;color:var(--muted);padding:70px 0 28px;border-top:1px 
   </div>
 </section>
 
-<!-- ═══ MENU ═══ -->
-<section class="menu-sec sec-pad" id="menu">
+<!-- ═══ EXPLORE ═══ -->
+<section class="explore sec-pad">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">From Our Counter</div>
-      <h2>The Menu</h2>
+      <div class="eyebrow">Explore Qahwa House</div>
+      <h2>Take a Closer Look</h2>
       <div class="divider"></div>
-      <p>Freshly baked, freshly brewed. Here's a taste of what's waiting at the counter.</p>
+      <p>Everything we serve and every corner of the house — one tap away.</p>
     </div>
-
-    <div class="tabs" id="tabs">
-      <button class="tab on" data-p="chai">Chai &amp; Coffee</button>
-      <button class="tab" data-p="bakery">Bakery &amp; Buns</button>
-      <button class="tab" data-p="cakes">Cakes &amp; Pastries</button>
-      <button class="tab" data-p="biscuits">Biscuits</button>
-      <button class="tab" data-p="snacks">Snacks &amp; Fast Food</button>
-    </div>
-
-    <!-- Chai & Coffee -->
-    <div class="pane on" id="p-chai">
-      <div class="mgrid">
-        <div class="mitem"><div><div class="nm">Irani Chai</div><div class="ds">The house classic — strong, milky, slow-brewed</div></div><div class="lead"></div><div class="pr">₹40</div></div>
-        <div class="mitem"><div><div class="nm">Qahwa <span class="tag">Signature</span></div><div class="ds">Traditional Arabic coffee</div></div><div class="lead"></div><div class="pr">₹40</div></div>
-        <div class="mitem"><div><div class="nm">Premium Organic Coffee</div><div class="ds">Freshly brewed, full-bodied</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
-        <div class="mitem"><div><div class="nm">Dum Tea</div><div class="ds">Extra-rich, dum-style brew</div></div><div class="lead"></div><div class="pr">₹40</div></div>
-      </div>
-    </div>
-
-    <!-- Bakery & Buns -->
-    <div class="pane" id="p-bakery">
-      <div class="mgrid">
-        <div class="mitem"><div><div class="nm">Honey Cheese Comb <span class="tag">Must Try</span></div><div class="ds">Yemeni Khaliat Al-Nahl with cheese &amp; honey</div></div><div class="lead"></div><div class="pr">₹80</div></div>
-        <div class="mitem"><div><div class="nm">Bun</div><div class="ds">Soft fresh-baked bun</div></div><div class="lead"></div><div class="pr">₹15</div></div>
-        <div class="mitem"><div><div class="nm">Maska Bun</div><div class="ds">Bun split &amp; buttered — chai's best friend</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
-        <div class="mitem"><div><div class="nm">Malai Bun</div><div class="ds">Filled with sweet cream</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
-        <div class="mitem"><div><div class="nm">Chicken Puff</div><div class="ds">Flaky, savoury, warm</div></div><div class="lead"></div><div class="pr">₹40</div></div>
-        <div class="mitem"><div><div class="nm">Veg Puff</div><div class="ds">Spiced vegetable filling</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
-      </div>
-    </div>
-
-    <!-- Cakes & Pastries -->
-    <div class="pane" id="p-cakes">
-      <div class="mgrid">
-        <div class="mitem"><div><div class="nm">Red Velvet Cake <span class="tag">500g</span></div><div class="ds">Classic cream-cheese finish</div></div><div class="lead"></div><div class="pr">₹450</div></div>
-        <div class="mitem"><div><div class="nm">Pineapple Cake <span class="tag">500g</span></div><div class="ds">Light sponge, fresh cream</div></div><div class="lead"></div><div class="pr">₹400</div></div>
-        <div class="mitem"><div><div class="nm">Choco Truffle Cake</div><div class="ds">Rich layered chocolate</div></div><div class="lead"></div><div class="pr">₹450</div></div>
-        <div class="mitem"><div><div class="nm">Dark Chocolate Pastry</div><div class="ds">Single-serve, intense cocoa</div></div><div class="lead"></div><div class="pr">₹99</div></div>
-        <div class="mitem"><div><div class="nm">Black Forest Pastry</div><div class="ds">Cream, cherry &amp; chocolate</div></div><div class="lead"></div><div class="pr">₹80</div></div>
-        <div class="mitem"><div><div class="nm">Choco Chips Pastry</div></div><div class="lead"></div><div class="pr">₹80</div></div>
-        <div class="mitem"><div><div class="nm">Pineapple Pastry</div></div><div class="lead"></div><div class="pr">₹80</div></div>
-        <div class="mitem"><div><div class="nm">Mango Pastry</div></div><div class="lead"></div><div class="pr">₹75</div></div>
-        <div class="mitem"><div><div class="nm">Biscoff Cheesecake</div></div><div class="lead"></div><div class="pr">₹69</div></div>
-        <div class="mitem"><div><div class="nm">Apricot Delight</div></div><div class="lead"></div><div class="pr">₹130</div></div>
-        <div class="mitem"><div><div class="nm">Chocolate Pudding Pot</div></div><div class="lead"></div><div class="pr">₹50</div></div>
-        <div class="mitem"><div><div class="nm">Mixed Fruit Pudding</div></div><div class="lead"></div><div class="pr">₹50</div></div>
-      </div>
-    </div>
-
-    <!-- Biscuits -->
-    <div class="pane" id="p-biscuits">
-      <div class="mgrid">
-        <div class="mitem"><div><div class="nm">Osmania Biscuit <span class="tag">Hyderabad</span></div><div class="ds">The classic salty-sweet tea biscuit</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
-        <div class="mitem"><div><div class="nm">Fruit Biscuit</div><div class="ds">Studded with candied fruit</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
-        <div class="mitem"><div><div class="nm">Chand Biscuit</div><div class="ds">Crescent-shaped shortbread</div></div><div class="lead"></div><div class="pr">₹10</div></div>
-        <div class="mitem"><div><div class="nm">Coconut Biscuit</div></div><div class="lead"></div><div class="pr">₹15</div></div>
-        <div class="mitem"><div><div class="nm">Chocolate Cashew Biscuit</div></div><div class="lead"></div><div class="pr">₹15</div></div>
-        <div class="mitem"><div><div class="nm">Chocolate Chip Cookie</div><div class="ds">Loaded with chocolate chunks</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
-      </div>
-    </div>
-
-    <!-- Snacks -->
-    <div class="pane" id="p-snacks">
-      <div class="mgrid">
-        <div class="mitem"><div><div class="nm">Chicken Pizza</div><div class="ds">Loaded thin-crust</div></div><div class="lead"></div><div class="pr">₹160</div></div>
-        <div class="mitem"><div><div class="nm">Veg Pizza</div></div><div class="lead"></div><div class="pr">₹130</div></div>
-        <div class="mitem"><div><div class="nm">Crispy Burger</div><div class="ds">Crunchy fried fillet</div></div><div class="lead"></div><div class="pr">₹130</div></div>
-        <div class="mitem"><div><div class="nm">Chicken Burger</div></div><div class="lead"></div><div class="pr">₹80</div></div>
-        <div class="mitem"><div><div class="nm">Veg Burger</div></div><div class="lead"></div><div class="pr">₹50</div></div>
-        <div class="mitem"><div><div class="nm">Chicken Samoli</div><div class="ds">Sesame bun, spiced chicken</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
-        <div class="mitem"><div><div class="nm">Paneer Wrap</div></div><div class="lead"></div><div class="pr">₹120</div></div>
-        <div class="mitem"><div><div class="nm">Crispy Chicken Wrap</div></div><div class="lead"></div><div class="pr">₹110</div></div>
-        <div class="mitem"><div><div class="nm">Chicken Wrap</div></div><div class="lead"></div><div class="pr">₹100</div></div>
-        <div class="mitem"><div><div class="nm">Chicken Pop Corn</div><div class="ds">Bite-size &amp; crunchy</div></div><div class="lead"></div><div class="pr">₹90</div></div>
-        <div class="mitem"><div><div class="nm">Chicken 65 Roll</div></div><div class="lead"></div><div class="pr">₹90</div></div>
-        <div class="mitem"><div><div class="nm">Butter Chicken Roll</div></div><div class="lead"></div><div class="pr">₹90</div></div>
-        <div class="mitem"><div><div class="nm">Chicken Roll</div></div><div class="lead"></div><div class="pr">₹80</div></div>
-        <div class="mitem"><div><div class="nm">Chicken Salad</div></div><div class="lead"></div><div class="pr">₹80</div></div>
-        <div class="mitem"><div><div class="nm">Club Sandwich</div></div><div class="lead"></div><div class="pr">₹80</div></div>
-        <div class="mitem"><div><div class="nm">Veg Sandwich</div></div><div class="lead"></div><div class="pr">₹50</div></div>
-      </div>
-    </div>
-
-    <p class="menu-note">Prices are from our in-store boards and may change. Many fresh items rotate daily — ask the counter for today's specials.</p>
-  </div>
-</section>
-
-<!-- ═══ PARALLAX QUOTE 2 ═══ -->
-<section class="parallax" style="background-image:url('assets/photos/qahwa-30.jpg')">
-  <div class="parallax-inner">
-    <div class="eyebrow">Baked Fresh Every Day</div>
-    <h2>Straight from the oven</h2>
-    <p>Cakes, pastries, biscuits, breads and savouries — fired in-house from morning and laid out warm across the counter.</p>
-    <a href="#bakery" class="btn btn-gold">See the Bakery</a>
-  </div>
-</section>
-
-<!-- ═══ BAKERY SHOWCASE ═══ -->
-<section class="showcase sec-pad" id="bakery">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Baked Fresh Every Day</div>
-      <h2>The Bakery Counter</h2>
-      <div class="divider"></div>
-      <p>All baked in-house and laid out across the counter, every single day.</p>
-    </div>
-    <div class="show-grid">
-      <figure class="wide tall"><img src="assets/photos/qahwa-30.jpg" width="1024" height="768" loading="lazy" alt="Qahwa House bakery counter stacked with breads, buns, biscuits and pastries"><figcaption>The bakery counter</figcaption></figure>
-      <figure><img src="assets/photos/qahwa-18.jpg" width="1024" height="768" loading="lazy" alt="Display fridge of fresh cakes and pastries"><figcaption>Cakes &amp; pastries</figcaption></figure>
-      <figure><img src="assets/photos/qahwa-25.jpg" width="1024" height="768" loading="lazy" alt="Trays of Osmania, coconut and fruit biscuits"><figcaption>Tea biscuits</figcaption></figure>
-      <figure><img src="assets/photos/qahwa-21.jpg" width="768" height="1024" loading="lazy" alt="Chicken pizza, veg pizza and wraps in the savoury case"><figcaption>Pizzas &amp; wraps</figcaption></figure>
-      <figure><img src="assets/photos/qahwa-20.jpg" width="1024" height="768" loading="lazy" alt="Red velvet pastry slices with cream"><figcaption>Red velvet slices</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ STORY ═══ -->
-<section class="story sec-pad" id="story">
-  <div class="wrap story-grid">
-    <div class="story-text">
-      <div class="eyebrow">Our Story</div>
-      <h2>Where chai, coffee &amp; fresh bakery meet</h2>
-      <p>Under the glow of our Roman-numeral clock and hand-painted Turkish lamps, Qahwa House brings together two great traditions: the unhurried ritual of Irani chai and the rich aroma of premium organic coffee.</p>
-      <p>Alongside, our bakers fire the ovens from morning — cakes, Osmania biscuits, buns, and the Yemeni honey comb people travel for. Pull up a chair across our two floors, with a dedicated family section upstairs.</p>
-      <div class="feats">
-        <div class="feat"><div class="fi">☕</div><div><b>Chai &amp; Qahwa</b><span>Brewed all day</span></div></div>
-        <div class="feat"><div class="fi">🥐</div><div><b>Fresh Bakery</b><span>Baked in-house daily</span></div></div>
-        <div class="feat"><div class="fi">👨‍👩‍👧</div><div><b>Family Section</b><span>Comfortable upstairs seating</span></div></div>
-        <div class="feat"><div class="fi">⚡</div><div><b>Self Service</b><span>Quick &amp; easy at the counter</span></div></div>
-      </div>
-    </div>
-    <div class="story-imgs">
-      <img src="assets/photos/qahwa-09.jpg" width="1024" height="768" loading="lazy" alt="Qahwa House interior — Roman-numeral clock and Turkish mosaic lamps on a terracotta wall">
-      <img src="assets/photos/qahwa-06.jpg" width="1024" height="768" loading="lazy" alt="The main service counter at Qahwa House">
-      <img src="assets/photos/qahwa-10.jpg" width="1024" height="768" loading="lazy" alt="Wood-panelled family dining section">
-    </div>
-  </div>
-</section>
-
-<!-- ═══ GALLERY ═══ -->
-<section class="gallery sec-pad" id="gallery">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Step Inside</div>
-      <h2>The Qahwa House Look</h2>
-      <div class="divider"></div>
-      <p>Warm terracotta walls, glowing lamps, and a welcoming counter — come see for yourself.</p>
-    </div>
-    <div class="gal-grid">
-      <a class="g-wide g-tall" href="assets/photos/qahwa-37.jpg" target="_blank" rel="noopener"><img src="assets/photos/qahwa-37.jpg" width="864" height="880" loading="lazy" alt="Qahwa House interior — long wooden counter, Roman-numeral clock and upstairs family mezzanine"></a>
-      <a class="g-tall" href="assets/photos/qahwa-38.jpg" target="_blank" rel="noopener"><img src="assets/photos/qahwa-38.jpg" width="864" height="914" loading="lazy" alt="Latte with flower latte art on a Qahwa House wooden serving tray"></a>
-      <a class="g-tall" href="assets/photos/qahwa-41.jpg" target="_blank" rel="noopener"><img src="assets/photos/qahwa-41.jpg" width="864" height="1152" loading="lazy" alt="Branded Qahwa House cup of Irani chai and premium organic coffee"></a>
-      <a class="g-wide" href="assets/photos/qahwa-40.jpg" target="_blank" rel="noopener"><img src="assets/photos/qahwa-40.jpg" width="864" height="1152" loading="lazy" alt="Bright upstairs dining area with wooden tables and city-view windows"></a>
-      <a href="assets/photos/qahwa-06.jpg" target="_blank" rel="noopener"><img src="assets/photos/qahwa-06.jpg" width="1024" height="768" loading="lazy" alt="Main counter and clock"></a>
-      <a href="assets/photos/qahwa-09.jpg" target="_blank" rel="noopener"><img src="assets/photos/qahwa-09.jpg" width="1024" height="768" loading="lazy" alt="Clock and mosaic lamps"></a>
-      <a href="assets/photos/qahwa-31.jpg" target="_blank" rel="noopener"><img src="assets/photos/qahwa-31.jpg" width="1024" height="768" loading="lazy" alt="Mezzanine seating with warm wood"></a>
-      <a class="g-tall" href="assets/photos/qahwa-34.jpg" target="_blank" rel="noopener"><img src="assets/photos/qahwa-34.jpg" width="768" height="1024" loading="lazy" alt="Sunburst Roman-numeral clock"></a>
-      <a href="assets/photos/qahwa-02.jpg" target="_blank" rel="noopener"><img src="assets/photos/qahwa-02.jpg" width="1024" height="768" loading="lazy" alt="Seating behind the terracotta jali screen"></a>
-      <a class="g-wide" href="assets/photos/qahwa-10.jpg" target="_blank" rel="noopener"><img src="assets/photos/qahwa-10.jpg" width="1024" height="768" loading="lazy" alt="Family dining section"></a>
-      <a href="assets/photos/qahwa-01.jpg" target="_blank" rel="noopener"><img src="assets/photos/qahwa-01.jpg" width="1024" height="768" loading="lazy" alt="Cosy corner dining"></a>
-      <a href="assets/photos/qahwa-07.jpg" target="_blank" rel="noopener"><img src="assets/photos/qahwa-07.jpg" width="1024" height="768" loading="lazy" alt="Counter and cake fridge by the staircase"></a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ PARALLAX QUOTE 3 ═══ -->
-<section class="parallax" style="background-image:url('assets/photos/qahwa-10.jpg')">
-  <div class="parallax-inner">
-    <div class="eyebrow">Family Section</div>
-    <h2>Gather the ones you love</h2>
-    <p>An air-conditioned upstairs family section — made for birthdays, reunions, and slow evenings of chai and bakery.</p>
-    <a href="#reserve" class="btn btn-gold">Reserve a Table</a>
-  </div>
-</section>
-
-<!-- ═══ RESERVE (family section) ═══ -->
-<section class="reserve sec-pad" id="reserve">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Family Section</div>
-      <h2>Reserve a Family Table</h2>
-      <div class="divider"></div>
-      <p>Planning a get-together? Reserve a spot in our comfortable upstairs family section — and we'll have it ready for you.</p>
-    </div>
-    <div class="res-grid">
-      <div class="res-intro">
-        <div class="eyebrow">Made for Gatherings</div>
-        <h2>Bring the whole family</h2>
-        <p>Our upstairs family section is air-conditioned, roomy, and perfect for birthdays, reunions, or a relaxed evening of chai and bakery with the people you love.</p>
-        <div class="res-perks">
-          <span>❄️ Air-conditioned</span>
-          <span>👨‍👩‍👧‍👦 Family seating</span>
-          <span>🎂 Birthdays &amp; events</span>
-          <span>☕ Chai · Coffee · Bakery</span>
-        </div>
-        <div class="res-img">
-          <img src="assets/photos/qahwa-10.jpg" width="1024" height="768" loading="lazy" alt="Qahwa House upstairs family section with wood panelling and comfortable seating">
-        </div>
-      </div>
-
-      <div class="res-card">
-        <h3>Request a Table</h3>
-        <div class="sub">Fill this in and we'll confirm your booking on WhatsApp.</div>
-        <form id="resForm">
-          <div class="field">
-            <label for="rName">Your Name</label>
-            <input id="rName" name="name" type="text" placeholder="e.g. Ahmed Khan" required>
-          </div>
-          <div class="field">
-            <label for="rPhone">Mobile Number</label>
-            <input id="rPhone" name="phone" type="tel" placeholder="e.g. 98765 43210" required>
-          </div>
-          <div class="res-row">
-            <div class="field">
-              <label for="rDate">Date</label>
-              <input id="rDate" name="date" type="date" required>
-            </div>
-            <div class="field">
-              <label for="rTime">Time</label>
-              <input id="rTime" name="time" type="time" required>
-            </div>
-          </div>
-          <div class="res-row">
-            <div class="field">
-              <label for="rGuests">Guests</label>
-              <select id="rGuests" name="guests" required>
-                <option value="" disabled selected>Select</option>
-                <option>1–2</option><option>3–4</option><option>5–6</option>
-                <option>7–10</option><option>10–15</option><option>15+</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="rOccasion">Occasion</label>
-              <select id="rOccasion" name="occasion">
-                <option value="" disabled selected>Optional</option>
-                <option>Family meal</option><option>Birthday</option>
-                <option>Get-together</option><option>Other</option>
-              </select>
-            </div>
-          </div>
-          <div class="field">
-            <label for="rNotes">Anything else? (optional)</label>
-            <textarea id="rNotes" name="notes" placeholder="Special requests, cake, decorations…"></textarea>
-          </div>
-          <button type="submit" class="btn btn-gold res-submit">Send Request on WhatsApp</button>
-        </form>
-        <p class="res-foot">Prefer to talk? <a href="tel:+918790620996">Call +91 87906 20996</a></p>
-      </div>
+    <div class="exp-grid">
+      <a class="exp-card" href="menu.html"><img src="assets/photos/qahwa-38.jpg" loading="lazy" alt="Latte art at Qahwa House"><div class="cap"><div class="eyebrow">Chai · Coffee · Bites</div><h3>The Menu</h3><span class="more">Browse the menu ➜</span></div></a>
+      <a class="exp-card" href="bakery.html"><img src="assets/photos/qahwa-30.jpg" loading="lazy" alt="Qahwa House bakery counter"><div class="cap"><div class="eyebrow">Baked Fresh Daily</div><h3>The Bakery</h3><span class="more">See the bakery ➜</span></div></a>
+      <a class="exp-card" href="story.html"><img src="assets/photos/qahwa-09.jpg" loading="lazy" alt="Qahwa House interior"><div class="cap"><div class="eyebrow">Who We Are</div><h3>Our Story</h3><span class="more">Read our story ➜</span></div></a>
+      <a class="exp-card" href="gallery.html"><img src="assets/photos/qahwa-37.jpg" loading="lazy" alt="Qahwa House gallery"><div class="cap"><div class="eyebrow">Step Inside</div><h3>Gallery</h3><span class="more">View the gallery ➜</span></div></a>
+      <a class="exp-card" href="reserve.html"><img src="assets/photos/qahwa-10.jpg" loading="lazy" alt="Family section seating"><div class="cap"><div class="eyebrow">Family Section</div><h3>Reserve a Table</h3><span class="more">Book a table ➜</span></div></a>
+      <a class="exp-card" href="#visit"><img src="assets/photos/qahwa-06.jpg" loading="lazy" alt="Qahwa House counter"><div class="cap"><div class="eyebrow">Mehdipatnam</div><h3>Visit Us</h3><span class="more">Get directions ➜</span></div></a>
     </div>
   </div>
 </section>
@@ -699,7 +230,7 @@ footer{background:#0A0705;color:var(--muted);padding:70px 0 28px;border-top:1px 
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="#top" class="logo"><span class="logo-badge"><img src="assets/logo-mark.png" width="52" height="52" alt="Qahwa House logo"></span><span class="logo-txt"><b>Qahwa House</b><span>Bakery · Irani Chai · Coffee</span></span></a>
+        <a href="index.html" class="logo"><span class="logo-badge"><img src="assets/logo-mark.png" width="52" height="52" alt="Qahwa House logo"></span><span class="logo-txt"><b>Qahwa House</b><span>Bakery · Irani Chai · Coffee</span></span></a>
         <p>Restaurant · Bakery · Irani Chai &amp; Premium Organic Coffee. Pillar No. 14, Asif Nagar Rd, Mehdipatnam, Hyderabad 500028.</p>
         <div class="socials">
           <a href="#" aria-label="Instagram" title="Owner: add Instagram link">📷</a>
@@ -709,12 +240,11 @@ footer{background:#0A0705;color:var(--muted);padding:70px 0 28px;border-top:1px 
       </div>
       <div class="foot-col">
         <h4>Explore</h4>
-        <a href="#signature">Honey Comb</a>
-        <a href="#menu">Menu</a>
-        <a href="#bakery">Bakery</a>
-        <a href="#story">Our Story</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#reserve">Reserve a Table</a>
+        <a href="menu.html">Menu</a>
+        <a href="bakery.html">Bakery</a>
+        <a href="story.html">Our Story</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="reserve.html">Reserve a Table</a>
       </div>
       <div class="foot-col">
         <h4>Visit</h4>
@@ -731,43 +261,6 @@ footer{background:#0A0705;color:var(--muted);padding:70px 0 28px;border-top:1px 
   </div>
 </footer>
 
-<script>
-// year
-document.getElementById('yr').textContent = new Date().getFullYear();
-// sticky nav
-var nav=document.getElementById('nav');
-addEventListener('scroll',function(){nav.classList.toggle('solid',scrollY>40)});
-// mobile menu
-var burger=document.getElementById('burger');
-burger.addEventListener('click',function(){nav.classList.toggle('open')});
-nav.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open')})});
-// menu tabs
-var tabs=document.getElementById('tabs');
-tabs.addEventListener('click',function(e){
-  var b=e.target.closest('.tab'); if(!b)return;
-  tabs.querySelectorAll('.tab').forEach(function(t){t.classList.remove('on')});
-  document.querySelectorAll('.pane').forEach(function(p){p.classList.remove('on')});
-  b.classList.add('on');
-  document.getElementById('p-'+b.dataset.p).classList.add('on');
-});
-// family reservation -> WhatsApp
-var resForm=document.getElementById('resForm');
-if(resForm){
-  resForm.addEventListener('submit',function(e){
-    e.preventDefault();
-    var v=function(id){return (document.getElementById(id).value||'').trim();};
-    var msg=
-      "*Family Section Reservation — Qahwa House*\n"+
-      "Name: "+v('rName')+"\n"+
-      "Mobile: "+v('rPhone')+"\n"+
-      "Date: "+v('rDate')+"\n"+
-      "Time: "+v('rTime')+"\n"+
-      "Guests: "+v('rGuests')+
-      (v('rOccasion')? "\nOccasion: "+v('rOccasion'):"")+
-      (v('rNotes')? "\nNotes: "+v('rNotes'):"");
-    window.open('https://wa.me/918790620996?text='+encodeURIComponent(msg),'_blank');
-  });
-}
-</script>
+<script src="assets/site.js"></script>
 </body>
 </html>
