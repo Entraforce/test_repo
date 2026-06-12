@@ -1,5 +1,8 @@
 // year
 var yr=document.getElementById('yr'); if(yr) yr.textContent=new Date().getFullYear();
+// hero video: play a touch slower for a calmer, slow-pour feel
+var hv=document.querySelector('.hero-video');
+if(hv){var setRate=function(){hv.playbackRate=0.7;};hv.addEventListener('loadedmetadata',setRate);setRate();}
 // sticky nav
 var nav=document.getElementById('nav');
 if(nav){
