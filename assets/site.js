@@ -1,5 +1,17 @@
 // year
 var yr=document.getElementById('yr'); if(yr) yr.textContent=new Date().getFullYear();
+// scroll reveal — fade/slide elements in as they enter the viewport
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!els.length) return;
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+    });
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
 // hero video: play a touch slower for a calmer, slow-pour feel
 var hv=document.querySelector('.hero-video');
 if(hv){var setRate=function(){hv.playbackRate=0.7;};hv.addEventListener('loadedmetadata',setRate);setRate();}

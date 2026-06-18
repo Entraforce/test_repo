@@ -19,7 +19,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=3">
+<link rel="stylesheet" href="assets/site.css?v=4">
+<script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
 
@@ -67,23 +68,31 @@
 
     <!-- Chai & Coffee -->
     <div class="pane on" id="p-chai">
-      <div class="mgrid">
-        <div class="mitem"><div><div class="nm">Irani Chai</div><div class="ds">The house classic — strong, milky, slow-brewed</div></div><div class="lead"></div><div class="pr">₹40</div></div>
-        <div class="mitem"><div><div class="nm">Qahwa <span class="tag">Signature</span></div><div class="ds">Traditional Arabic coffee</div></div><div class="lead"></div><div class="pr">₹40</div></div>
-        <div class="mitem"><div><div class="nm">Premium Organic Coffee</div><div class="ds">Freshly brewed, full-bodied</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
-        <div class="mitem"><div><div class="nm">Dum Tea</div><div class="ds">Extra-rich, dum-style brew</div></div><div class="lead"></div><div class="pr">₹40</div></div>
+      <div class="dish-grid reveal">
+        <div class="dish"><div class="ph"><span class="flag">House Classic</span><span class="chip">₹40</span><img src="assets/photos/menu-chai.jpg" loading="lazy" alt="Qahwa House Irani chai — strong milky tea in a branded cup"></div><div class="bd"><div class="ar3">إيراني · Irani</div><h3>Irani Chai</h3><p>Strong, milky and slow-brewed — the cup our regulars come back for, all day long.</p></div></div>
+        <div class="dish"><div class="ph"><span class="flag">Signature</span><span class="chip">₹40</span><img src="assets/photos/menu-chai-top.jpg" loading="lazy" alt="Qahwa — traditional Arabic coffee served in a Qahwa House cup"></div><div class="bd"><div class="ar3">قهوة · Qahwa</div><h3>Qahwa</h3><p>Traditional Arabic coffee — warm, aromatic and lightly spiced.</p></div></div>
+      </div>
+      <div class="menu-more">
+        <div class="mgrid">
+          <div class="mitem"><div><div class="nm">Premium Organic Coffee</div><div class="ds">Freshly brewed, full-bodied</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
+          <div class="mitem"><div><div class="nm">Dum Tea</div><div class="ds">Extra-rich, dum-style brew</div></div><div class="lead"></div><div class="pr">₹40</div></div>
+        </div>
       </div>
     </div>
 
     <!-- Bakery & Buns -->
     <div class="pane" id="p-bakery">
-      <div class="mgrid">
-        <div class="mitem"><div><div class="nm">Honey Cheese Comb <span class="tag">Must Try</span></div><div class="ds">Yemeni Khaliat Al-Nahl with cheese &amp; honey</div></div><div class="lead"></div><div class="pr">₹80</div></div>
-        <div class="mitem"><div><div class="nm">Bun</div><div class="ds">Soft fresh-baked bun</div></div><div class="lead"></div><div class="pr">₹15</div></div>
-        <div class="mitem"><div><div class="nm">Maska Bun</div><div class="ds">Bun split &amp; buttered — chai's best friend</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
-        <div class="mitem"><div><div class="nm">Malai Bun</div><div class="ds">Filled with sweet cream</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
-        <div class="mitem"><div><div class="nm">Chicken Puff</div><div class="ds">Flaky, savoury, warm</div></div><div class="lead"></div><div class="pr">₹40</div></div>
-        <div class="mitem"><div><div class="nm">Veg Puff</div><div class="ds">Spiced vegetable filling</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
+      <div class="dish-grid reveal">
+        <div class="dish"><div class="ph"><span class="flag">Must Try</span><span class="chip">₹80</span><img src="assets/photos/qahwa-39.jpg" loading="lazy" alt="Yemeni Honey Cheese Comb — golden sesame-topped Khaliat Al-Nahl"></div><div class="bd"><div class="ar3">خلية النحل · Khaliat Al-Nahl</div><h3>Honey Cheese Comb</h3><p>Pillowy milk-bread honeycomb, soft cheese inside, a drizzle of honey on top.</p></div></div>
+        <div class="dish"><div class="ph"><span class="chip">₹40</span><img src="assets/photos/menu-puff.jpg" loading="lazy" alt="Flaky golden chicken puff pastry, fresh from the oven"></div><div class="bd"><h3>Chicken Puff</h3><p>Flaky layers, warm savoury filling — chai's perfect partner.</p></div></div>
+      </div>
+      <div class="menu-more">
+        <div class="mgrid">
+          <div class="mitem"><div><div class="nm">Bun</div><div class="ds">Soft fresh-baked bun</div></div><div class="lead"></div><div class="pr">₹15</div></div>
+          <div class="mitem"><div><div class="nm">Maska Bun</div><div class="ds">Bun split &amp; buttered — chai's best friend</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
+          <div class="mitem"><div><div class="nm">Malai Bun</div><div class="ds">Filled with sweet cream</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
+          <div class="mitem"><div><div class="nm">Veg Puff</div><div class="ds">Spiced vegetable filling</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
+        </div>
       </div>
     </div>
 
@@ -107,35 +116,45 @@
 
     <!-- Biscuits -->
     <div class="pane" id="p-biscuits">
-      <div class="mgrid">
-        <div class="mitem"><div><div class="nm">Osmania Biscuit <span class="tag">Hyderabad</span></div><div class="ds">The classic salty-sweet tea biscuit</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
-        <div class="mitem"><div><div class="nm">Fruit Biscuit</div><div class="ds">Studded with candied fruit</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
-        <div class="mitem"><div><div class="nm">Chand Biscuit</div><div class="ds">Crescent-shaped shortbread</div></div><div class="lead"></div><div class="pr">₹10</div></div>
-        <div class="mitem"><div><div class="nm">Coconut Biscuit</div></div><div class="lead"></div><div class="pr">₹15</div></div>
-        <div class="mitem"><div><div class="nm">Chocolate Cashew Biscuit</div></div><div class="lead"></div><div class="pr">₹15</div></div>
-        <div class="mitem"><div><div class="nm">Chocolate Chip Cookie</div><div class="ds">Loaded with chocolate chunks</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
+      <div class="dish-grid cols4 reveal">
+        <div class="dish"><div class="ph"><span class="flag">Hyderabad</span><img src="assets/photos/menu-biscuit-osmania.jpg" loading="lazy" alt="Osmania biscuits — golden salty-sweet Hyderabadi tea biscuits"></div><div class="bd"><h3>Osmania Biscuit</h3><p>The classic salty-sweet tea biscuit.</p></div></div>
+        <div class="dish"><div class="ph"><img src="assets/photos/menu-biscuit-fruit.jpg" loading="lazy" alt="Tutti-frutti fruit biscuits with candied fruit ribbons"></div><div class="bd"><h3>Fruit Biscuit</h3><p>Buttery shortbread ribboned with candied fruit.</p></div></div>
+        <div class="dish"><div class="ph"><span class="chip">₹15</span><img src="assets/photos/menu-biscuit-coconut.jpg" loading="lazy" alt="Sugar-crusted coconut biscuits"></div><div class="bd"><h3>Coconut Biscuit</h3><p>Sugar-crusted, soft coconut crumb.</p></div></div>
+        <div class="dish"><div class="ph"><span class="chip">₹10</span><img src="assets/photos/menu-biscuit-chand.jpg" loading="lazy" alt="Chand biscuits — crescent moon shortbread"></div><div class="bd"><h3>Chand Biscuit</h3><p>Crescent-moon shortbread, melt-in-mouth.</p></div></div>
+        <div class="dish"><div class="ph"><span class="chip">₹15</span><img src="assets/photos/menu-biscuit-choccashew.jpg" loading="lazy" alt="Chocolate cashew biscuits topped with nuts"></div><div class="bd"><h3>Chocolate Cashew</h3><p>Cocoa shortbread crowned with cashew.</p></div></div>
+        <div class="dish"><div class="ph"><img src="assets/photos/menu-biscuit-chocchip.jpg" loading="lazy" alt="Chocolate chip cookie fingers"></div><div class="bd"><h3>Chocolate Chip</h3><p>Loaded with dark chocolate chunks.</p></div></div>
+        <div class="dish"><div class="ph"><img src="assets/photos/menu-biscuit-almond.jpg" loading="lazy" alt="Dry-fruit and almond biscuits"></div><div class="bd"><h3>Dry Fruit &amp; Almond</h3><p>Rich shortbread packed with nuts.</p></div></div>
+        <div class="dish"><div class="ph"><img src="assets/photos/menu-biscuit-sesame.jpg" loading="lazy" alt="Sesame-topped biscuits"></div><div class="bd"><h3>Sesame Biscuit</h3><p>Nutty, toasted sesame crust.</p></div></div>
+        <div class="dish"><div class="ph"><img src="assets/photos/menu-biscuit-oat.jpg" loading="lazy" alt="Oat biscuits with rolled oats"></div><div class="bd"><h3>Oat Biscuit</h3><p>Wholesome, lightly sweet oat crumb.</p></div></div>
+        <div class="dish"><div class="ph"><img src="assets/photos/menu-biscuit-saffron.jpg" loading="lazy" alt="Bright saffron-yellow cookies"></div><div class="bd"><h3>Saffron Cookie</h3><p>Golden, fragrant and buttery.</p></div></div>
+        <div class="dish"><div class="ph"><img src="assets/photos/menu-biscuit-coconut-cherry.jpg" loading="lazy" alt="Coconut biscuits with a glacé cherry centre"></div><div class="bd"><h3>Coconut Cherry</h3><p>Coconut crumb with a glacé cherry centre.</p></div></div>
       </div>
+      <p class="menu-note">Biscuit prices vary by weight — ask the counter for today's trays.</p>
     </div>
 
     <!-- Snacks -->
     <div class="pane" id="p-snacks">
-      <div class="mgrid">
-        <div class="mitem"><div><div class="nm">Chicken Pizza</div><div class="ds">Loaded thin-crust</div></div><div class="lead"></div><div class="pr">₹160</div></div>
-        <div class="mitem"><div><div class="nm">Veg Pizza</div></div><div class="lead"></div><div class="pr">₹130</div></div>
-        <div class="mitem"><div><div class="nm">Crispy Burger</div><div class="ds">Crunchy fried fillet</div></div><div class="lead"></div><div class="pr">₹130</div></div>
-        <div class="mitem"><div><div class="nm">Chicken Burger</div></div><div class="lead"></div><div class="pr">₹80</div></div>
-        <div class="mitem"><div><div class="nm">Veg Burger</div></div><div class="lead"></div><div class="pr">₹50</div></div>
-        <div class="mitem"><div><div class="nm">Chicken Samoli</div><div class="ds">Sesame bun, spiced chicken</div></div><div class="lead"></div><div class="pr">Ask counter</div></div>
-        <div class="mitem"><div><div class="nm">Paneer Wrap</div></div><div class="lead"></div><div class="pr">₹120</div></div>
-        <div class="mitem"><div><div class="nm">Crispy Chicken Wrap</div></div><div class="lead"></div><div class="pr">₹110</div></div>
-        <div class="mitem"><div><div class="nm">Chicken Wrap</div></div><div class="lead"></div><div class="pr">₹100</div></div>
-        <div class="mitem"><div><div class="nm">Chicken Pop Corn</div><div class="ds">Bite-size &amp; crunchy</div></div><div class="lead"></div><div class="pr">₹90</div></div>
-        <div class="mitem"><div><div class="nm">Chicken 65 Roll</div></div><div class="lead"></div><div class="pr">₹90</div></div>
-        <div class="mitem"><div><div class="nm">Butter Chicken Roll</div></div><div class="lead"></div><div class="pr">₹90</div></div>
-        <div class="mitem"><div><div class="nm">Chicken Roll</div></div><div class="lead"></div><div class="pr">₹80</div></div>
-        <div class="mitem"><div><div class="nm">Chicken Salad</div></div><div class="lead"></div><div class="pr">₹80</div></div>
-        <div class="mitem"><div><div class="nm">Club Sandwich</div></div><div class="lead"></div><div class="pr">₹80</div></div>
-        <div class="mitem"><div><div class="nm">Veg Sandwich</div></div><div class="lead"></div><div class="pr">₹50</div></div>
+      <div class="dish-grid cols4 reveal">
+        <div class="dish"><div class="ph"><span class="flag">Loaded</span><span class="chip">₹160</span><img src="assets/photos/menu-pizza.jpg" loading="lazy" alt="Chicken pizza loaded with tandoori chicken, olives and mozzarella"></div><div class="bd"><h3>Chicken Pizza</h3><p>Tandoori chicken, black olives, molten mozzarella.</p></div></div>
+        <div class="dish"><div class="ph"><span class="chip">₹80</span><img src="assets/photos/menu-burger.jpg" loading="lazy" alt="Chicken burger with sesame bun, tomato and onion"></div><div class="bd"><h3>Chicken Burger</h3><p>Juicy chicken, fresh salad, sesame bun.</p></div></div>
+        <div class="dish"><div class="ph"><span class="chip">₹130</span><img src="assets/photos/menu-burger-top.jpg" loading="lazy" alt="Crispy fried chicken burger"></div><div class="bd"><h3>Crispy Burger</h3><p>Crunchy fried fillet, sauce &amp; salad.</p></div></div>
+        <div class="dish"><div class="ph"><span class="chip">₹100</span><img src="assets/photos/menu-wrap.jpg" loading="lazy" alt="Chicken wrap with spiced filling"></div><div class="bd"><h3>Chicken Wrap</h3><p>Spiced chicken rolled up warm and fresh.</p></div></div>
+        <div class="dish"><div class="ph"><span class="chip">₹110</span><img src="assets/photos/menu-wrap-crispy.jpg" loading="lazy" alt="Crispy chicken wrap, cut to show the filling"></div><div class="bd"><h3>Crispy Chicken Wrap</h3><p>Crunchy chicken, slaw &amp; creamy sauce.</p></div></div>
+        <div class="dish"><div class="ph"><span class="chip">₹90</span><img src="assets/photos/menu-popcorn.jpg" loading="lazy" alt="Crispy chicken popcorn bites with a creamy dip"></div><div class="bd"><h3>Chicken Pop Corn</h3><p>Bite-size, crunchy, served with dip.</p></div></div>
+        <div class="dish"><div class="ph"><img src="assets/photos/menu-sub.jpg" loading="lazy" alt="Chicken Samoli — sesame sub loaded with chicken and melted cheese"></div><div class="bd"><h3>Chicken Samoli</h3><p>Sesame sub, spiced chicken &amp; melted cheese.</p></div></div>
+        <div class="dish"><div class="ph"><span class="chip">₹90</span><img src="assets/photos/menu-roll.jpg" loading="lazy" alt="Grilled chicken 65 roll"></div><div class="bd"><h3>Chicken 65 Roll</h3><p>Fiery Chicken 65 in a grilled roll.</p></div></div>
+        <div class="dish"><div class="ph"><span class="chip">₹80</span><img src="assets/photos/menu-sandwich.jpg" loading="lazy" alt="Grilled club sandwich with grill marks"></div><div class="bd"><h3>Club Sandwich</h3><p>Grilled, herbed and stacked.</p></div></div>
+        <div class="dish"><div class="ph"><span class="chip">₹50</span><img src="assets/photos/menu-sandwich-2.jpg" loading="lazy" alt="Grilled veg cheese sandwich"></div><div class="bd"><h3>Veg Sandwich</h3><p>Grilled cheese &amp; veg, golden &amp; gooey.</p></div></div>
+      </div>
+      <div class="menu-more">
+        <div class="mgrid">
+          <div class="mitem"><div><div class="nm">Veg Pizza</div></div><div class="lead"></div><div class="pr">₹130</div></div>
+          <div class="mitem"><div><div class="nm">Veg Burger</div></div><div class="lead"></div><div class="pr">₹50</div></div>
+          <div class="mitem"><div><div class="nm">Paneer Wrap</div></div><div class="lead"></div><div class="pr">₹120</div></div>
+          <div class="mitem"><div><div class="nm">Butter Chicken Roll</div></div><div class="lead"></div><div class="pr">₹90</div></div>
+          <div class="mitem"><div><div class="nm">Chicken Roll</div></div><div class="lead"></div><div class="pr">₹80</div></div>
+          <div class="mitem"><div><div class="nm">Chicken Salad</div></div><div class="lead"></div><div class="pr">₹80</div></div>
+        </div>
       </div>
     </div>
 
@@ -183,6 +202,6 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=3"></script>
+<script src="assets/site.js?v=4"></script>
 </body>
 </html>
