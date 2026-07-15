@@ -12,6 +12,43 @@ var yr=document.getElementById('yr'); if(yr) yr.textContent=new Date().getFullYe
   },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
   els.forEach(function(e){io.observe(e)});
 })();
+// biryani feature: gentle scroll parallax + 3D tilt on hover
+(function(){
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduce) return;
+  // --- parallax: shift [data-parallax] media as it scrolls through view ---
+  var px=document.querySelectorAll('[data-parallax]');
+  if(px.length){
+    var ticking=false;
+    var apply=function(){
+      ticking=false;
+      var vh=innerHeight||document.documentElement.clientHeight;
+      px.forEach(function(el){
+        var r=el.getBoundingClientRect();
+        if(r.bottom<-40||r.top>vh+40) return;
+        var prog=((r.top+r.height/2)-vh/2)/vh;      // ~ -0.6..0.6
+        el.style.transform='translate3d(0,'+(prog*-30).toFixed(1)+'px,0)';
+      });
+    };
+    addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(apply);}},{passive:true});
+    addEventListener('resize',apply,{passive:true});
+    apply();
+  }
+  // --- 3D tilt toward the cursor on [data-tilt] (fine pointers only) ---
+  var fine=window.matchMedia&&matchMedia('(hover:hover) and (pointer:fine)').matches;
+  if(fine){
+    document.querySelectorAll('[data-tilt]').forEach(function(el){
+      var max=el.classList.contains('bir-feature')?5:7;
+      el.addEventListener('mousemove',function(e){
+        var r=el.getBoundingClientRect();
+        var x=(e.clientX-r.left)/r.width-0.5;
+        var y=(e.clientY-r.top)/r.height-0.5;
+        el.style.transform='perspective(1000px) rotateX('+(-y*max).toFixed(2)+'deg) rotateY('+(x*max).toFixed(2)+'deg)';
+      });
+      el.addEventListener('mouseleave',function(){el.style.transform='';});
+    });
+  }
+})();
 // hero video: play a touch slower for a calmer, slow-pour feel
 var hv=document.querySelector('.hero-video');
 if(hv){var setRate=function(){hv.playbackRate=0.7;};hv.addEventListener('loadedmetadata',setRate);setRate();}
@@ -64,6 +101,19 @@ if(resForm){
   // ---- Menu knowledge base ----
   // veg:true=vegetarian, false=non-veg, null=n/a (drinks). price:null = ask counter / varies.
   var MENU=[
+    {n:'Mutton Biryani (Single)',p:200,veg:false,cat:'Biryani',fav:1,k:['mutton biryani','biryani','mutton','dum']},
+    {n:'Mutton Biryani (Full)',p:380,veg:false,cat:'Biryani',k:['mutton biryani full','biryani','mutton']},
+    {n:'Mutton Biryani (Family Pack)',p:580,veg:false,cat:'Biryani',k:['mutton biryani family','biryani','mutton','family pack']},
+    {n:'Chicken Biryani (Single)',p:160,veg:false,cat:'Biryani',fav:1,k:['chicken biryani','biryani','dum']},
+    {n:'Chicken Biryani (Full)',p:280,veg:false,cat:'Biryani',k:['chicken biryani full','biryani']},
+    {n:'Chicken Biryani (Family Pack)',p:480,veg:false,cat:'Biryani',k:['chicken biryani family','biryani','family pack']},
+    {n:'Veg Biryani (Single)',p:140,veg:true,cat:'Biryani',k:['veg biryani','biryani','dum']},
+    {n:'Veg Biryani (Full)',p:240,veg:true,cat:'Biryani',k:['veg biryani full','biryani']},
+    {n:'Veg Biryani (Family Pack)',p:380,veg:true,cat:'Biryani',k:['veg biryani family','biryani','family pack']},
+    {n:'Biryani Rice',p:120,veg:true,cat:'Biryani',k:['biryani rice','rice']},
+    {n:'Chicken 65 (Half)',p:180,veg:false,cat:'Biryani',k:['chicken 65','65 half']},
+    {n:'Chicken 65 (Full)',p:280,veg:false,cat:'Biryani',k:['chicken 65 full','65 full']},
+    {n:'Rumali Roti',p:20,veg:true,cat:'Biryani',k:['rumali','roti']},
     {n:'Irani Chai',p:40,veg:true,cat:'Chai & Coffee',fav:1,k:['chai','tea','irani']},
     {n:'Qahwa',p:40,veg:true,cat:'Chai & Coffee',fav:1,k:['qahwa','arabic coffee']},
     {n:'Premium Organic Coffee',p:null,veg:true,cat:'Chai & Coffee',k:['coffee','organic']},
@@ -115,7 +165,7 @@ if(resForm){
     {n:'Chicken Salad',p:80,veg:false,cat:'Snacks & Fast Food',k:['salad']}
   ];
   var fmt=function(p){return p?'₹'+p:'Ask counter';};
-  var CATS=['Chai & Coffee','Bakery & Buns','Cakes & Pastries','Biscuits','Snacks & Fast Food'];
+  var CATS=['Biryani','Chai & Coffee','Bakery & Buns','Cakes & Pastries','Biscuits','Snacks & Fast Food'];
 
   // ---- build floating UI ----
   var waSvg='<svg viewBox="0 0 32 32"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.4 2 7.8L.5 31.5l7.9-2c2.3 1.2 4.9 1.9 7.6 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.3c-2.5 0-4.9-.7-6.9-1.9l-.5-.3-4.6 1.2 1.2-4.5-.3-.5C3.9 20.7 3.2 18.4 3.2 16 3.2 9 9 3.2 16 3.2S28.8 9 28.8 16 23 28.8 16 28.8zm7.1-8.8c-.4-.2-2.3-1.1-2.6-1.3-.4-.1-.6-.2-.9.2-.2.4-.9 1.2-1.1 1.4-.2.2-.4.2-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.3-2.1-2.7-.2-.4 0-.5.2-.7.2-.2.4-.4.5-.6.2-.2.2-.4.4-.6.1-.2.1-.4 0-.6s-.9-2.1-1.2-2.8c-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-.9.4-.3.4-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.6.2-1.8-.1-.1-.4-.2-.8-.4z"/></svg>';
@@ -210,7 +260,7 @@ if(resForm){
   });
 
   // ---- bot brain ----
-  var DEFAULT_CHIPS=['📋 Full menu','🌿 Veg only','⭐ Bestsellers','🕔 Timings','📍 Location'];
+  var DEFAULT_CHIPS=['🍛 Biryani','📋 Full menu','🌿 Veg only','⭐ Bestsellers','🕔 Timings','📍 Location'];
   function listCat(cat){return MENU.filter(function(m){return m.cat===cat});}
   function has(q){for(var i=1;i<arguments.length;i++){if(q.indexOf(arguments[i])>-1)return true;}return false;}
 
@@ -245,6 +295,8 @@ if(resForm){
       return {html:"Easy on the pocket 👇 tasty picks at <b>₹50 or less</b>:",items:MENU.filter(function(m){return m.p&&m.p<=50;}),chips:['⭐ Bestsellers','🛒 Order on WhatsApp']};
 
     // category intents
+    if(has(q,'biryani','biriyani','biriani','dum','mutton','handi'))
+      return {html:"🍛 Our new <b>Hyderabadi Dum Biryani</b> — extra-long basmati rice, slow-cooked on <i>dum</i> in a traditional handi. Available in Mutton, Chicken &amp; Veg (Single / Full / Family Pack):",items:listCat('Biryani'),chips:['🛒 Order on WhatsApp','⭐ Bestsellers']};
     if(has(q,'chai','tea','coffee','qahwa','drink','beverage'))
       return {html:"☕ From our brew counter:",items:listCat('Chai & Coffee'),chips:['🥐 Bakery','⭐ Bestsellers']};
     if(has(q,'cake','pastry','dessert','sweet','cheesecake','pudding'))
@@ -257,7 +309,7 @@ if(resForm){
       return {html:"🍔 Snacks & fast food:",items:listCat('Snacks & Fast Food'),chips:['🌿 Veg only','🛒 Order on WhatsApp']};
 
     if(has(q,'menu','what do you have','options','list','show me','everything','eat'))
-      return {html:"Here's the whole menu — pick a section: 👇",chips:['☕ Chai & Coffee','🥐 Bakery','🍰 Cakes & Pastries','🍪 Biscuits','🍔 Fast Food','⭐ Bestsellers']};
+      return {html:"Here's the whole menu — pick a section: 👇",chips:['🍛 Biryani','☕ Chai & Coffee','🥐 Bakery','🍰 Cakes & Pastries','🍪 Biscuits','🍔 Fast Food','⭐ Bestsellers']};
 
     // direct item / keyword match
     var hits=MENU.filter(function(m){
