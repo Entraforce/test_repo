@@ -1,7 +1,7 @@
 # Qahwa House — website
 
 The website for **Qahwa House** (Restaurant · Bakery · Irani Chai · Premium Organic
-Coffee) in Mehdipatnam, Hyderabad. Domain: **coffeemocktailscorner.com**.
+Coffee) in Mehdipatnam, Hyderabad. Domain: **qahwahouse.net**.
 
 It's a single static page — no build step, no framework. Just open `index.html`.
 
@@ -33,4 +33,4 @@ Still optional / to add when you have them (search `index.html` for the word):
 
 ## To publish (GitHub Pages)
 This isn't connected to GitHub yet. When you're ready, I can create the repo and push it,
-then point `coffeemocktailscorner.com` at it — same setup as the Shaahi Biryani site.
+then point `qahwahouse.net` at it — same setup as the Shaahi Biryani site.
